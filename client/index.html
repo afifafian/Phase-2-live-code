@@ -32,8 +32,8 @@
             <strong>Hacktiv Password Manager</strong>
           </a>
           <div class="ml-auto">
-            <button class="btn btn-success">Add Password</button>
-            <button class="btn btn-danger">Logout</button>
+            <button id="buttonAdd" class="btn btn-success" onclick="addForm()">Add Password</button>
+            <button id="buttonLogout" class="btn btn-danger" onclick="afterLogout()">Logout</button>
           </div>
         </div>
       </div>
@@ -49,40 +49,40 @@
       </section>
 
       <!-- This is Login Form -->
-      <div class="col-4 mx-auto my-4">
-        <form>
+      <div id="login-form" class="col-4 mx-auto my-4">
+        <form onsubmit="afterLogin(event)">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            <input id="emailLogin" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
               placeholder="Enter email">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input id="passwordLogin" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
 
       <!-- This is create password form -->
-      <div class="col-6 mx-auto my-4">
+      <div id="add-form" class="col-6 mx-auto my-4">
         <h5>Add Password</h5>
-        <form>
+        <form  onsubmit="afterAdd(event)">
           <div class="form-group">
             <label>Website Name</label>
-            <input type="text" class="form-control" placeholder="Enter website name">
+            <input id="nameAdd" type="text" class="form-control" placeholder="Enter website name">
           </div>
           <div class="form-group">
             <label>Website URL</label>
-            <input type="text" class="form-control" placeholder="Enter website URL">
+            <input id="urlAdd" type="text" class="form-control" placeholder="Enter website URL">
           </div>
           <div class="form-group">
             <label>Username or email</label>
-            <input type="text" class="form-control" placeholder="Enter username or email">
+            <input id="usernameAdd" type="text" class="form-control" placeholder="Enter username or email">
           </div>
           <div class="form-group">
             <label>Password</label>
-            <input type="password" class="form-control" placeholder="Enter password">
+            <input id="passAdd" type="password" class="form-control" placeholder="Enter password">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -92,40 +92,27 @@
       <div class="py-5">
 
         <div class="container">
-          <h1>You don't have any password saved</h1>
+          <h1 id="no-list">You don't have any password saved</h1>
           <div class="row">
             <!-- This is Password Managercards -->
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <div class="card-body">
-                  <h5 class="card-title">Google</h5>
-                  <p class="card-text">www.google.com</p>
-                  <p class="card-text">username/email: qweqwe@mail.com</p>
-                  <p class="card-text">password: qweqwe</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group mx-auto">
-                      <button type="button" class="btn btn-sm btn-outline-danger">Delete Password</button>
+            <section id="password-list">
+              <div class="col md-4">
+                <div class="card mb-4 box-shadow">           
+                  <div class="card-body">
+                    <h5 class="card-title">Google</h5>      
+                    <p class="card-text">www.google.com</p>           
+                    <p class="card-text">username/email: qweqwe@mail.com</p>
+                    <p class="card-text">password: qweqwe</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group mx-auto">
+                        <button type="button" class="btn btn-sm btn-outline-danger">Delete Password</button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- This is Password Managercards -->
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <div class="card-body">
-                  <h5 class="card-title">Google</h5>
-                  <p class="card-text">www.google.com</p>
-                  <p class="card-text">username/email: qweqwe@mail.com</p>
-                  <p class="card-text">password: qweqwe</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group mx-auto">
-                      <button type="button" class="btn btn-sm btn-outline-danger">Delete Password</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          </section>
+            
           </div>
         </div>
       </div>
@@ -135,6 +122,11 @@
 
   <!-- core JavaScript
     ================================================== -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+
+  <script src="main.js"></script>
 </body>
 
 </html>
